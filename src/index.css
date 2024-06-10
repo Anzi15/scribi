@@ -1,0 +1,14 @@
+@import url("https://fonts.googleapis.com/css?family=Google+Sans:100,300,400,500,700,900,100i,300i,400i,500i,700i,900i");
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+body{
+    background: #202124;
+    color: #ffffff;
+    font-family: "Google Sans";
+}
+
+input:not([type="submit"]){
+    border: none;
+    outline: none;
+}
