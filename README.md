@@ -55,5 +55,10 @@ Technologies used in the project:
 
 <h2>💖Like my work?</h2>
 
-Buy me a coffee<p>
-<a href="https://buymeacoffee.com/lemme.code" target="_blank"><img align="left" src="https://media4.giphy.com/media/v1.Y2lkPTc5MGI3NjExcG0xb29hZWNzMGx6enV2N3NmamhrNGRhY3RhNGlpYTh2bmd1Nm4wNyZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9cw/7kZE0z52Sd9zSESzDA/giphy.webp"></a></p>
+
+
+<a href="https://buymeacoffee.com/lemme.code" target="_blank">
+
+<h1>Buy me a coffee</h1>
+  </a>
+
