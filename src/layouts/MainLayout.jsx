@@ -4,17 +4,17 @@ import SideBar from "../components/SideBar";
 
 const MainLayout = ({ children }) => {
   return (
-    <div className="layout-container">
-      <NavBar />
-      <div className="content-container">
-        <main>
+<>
+        <NavBar />
+    <div className=" relative flex items-start">
+
+        <SideBar />
+        <main className="mt-[5rem] p-6 inline gap-1">
           {children}
         </main>
-        <aside>
-          <SideBar />
-        </aside>
-      </div>
     </div>
+</>
+
   );
 };
 
