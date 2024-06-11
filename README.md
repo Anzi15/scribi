@@ -8,8 +8,7 @@
 
 <h2>🚀 Demo</h2>
 
-[scribi.netlify.app](scribi.netlify.app)
-
+[scribi.vercel.app](https://scribi.vercel.app/)
 <h2>🧐 Features</h2>
 
 Here're some of the project's best features:
@@ -53,7 +52,7 @@ Technologies used in the project:
 - vite
 - tailwinds
 
-<h2>💖Like my work?</h2>
+<h2>-meow</h2>
 
 
 
