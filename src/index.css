@@ -12,3 +12,6 @@ input:not([type="submit"]){
     border: none;
     outline: none;
 }
+.width-transition {
+    transition: width 0.3s ease, padding 0.3s ease;
+  }

@@ -1,15 +1,15 @@
-import React from "react";
+import React, { useEffect } from "react";
 import { RxHamburgerMenu } from "react-icons/rx";
 import { IoIosSearch } from "react-icons/io";
 import logo from "../assets/logo.png";
 import avatar from "../assets/avatar.jpg";
 
-const NavBar = () => {
+const NavBar = ({isNavbarOpen, ToggleNavBar}) => {
   return (
     <>
       <nav className="px-3 py-1 min-h-[4rem]  border-y-[1px] border-lightGrey flex fixed top-0 right-0 left-0 bg-dark justify-between z-10">
         <div className="branding-group flex gap-4 w-15% ">
-          <button className="hamburger-toggler text-2xl aspect-square focus:bg-lightGrey hover:bg-lightGrey p-2 rounded-[50%] flex justify-center items-center">
+          <button onClick={ToggleNavBar} className="hamburger-toggler text-2xl aspect-square focus:bg-lightGrey hover:bg-lightGrey p-2 rounded-[50%] flex justify-center items-center">
             <RxHamburgerMenu />
           </button>
 
