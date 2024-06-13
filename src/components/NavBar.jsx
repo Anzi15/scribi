@@ -21,17 +21,22 @@ const NavBar = ({isNavbarOpen, ToggleNavBar}) => {
           </div>
         </div>
 
-        <div className="search-box-con  bg-lightGrey focus:bg-white w-[60%] min-h-[95%] rounded cursor-text flex items-center px-4 text-white gap-3 justify-self-center">
+
+        <div className="flex w-[70%] md:justify-between justify-end">
+
+        <div className="search-box-con  md:bg-lightGrey focus:bg-white w-fit md:w-[60%] min-h-[95%] rounded cursor-text flex items-center px-4 text-white gap-3 justify-self-center">
           <button className="hamburger-toggler text-2xl focus:bg-lightGrey hover:bg-lightGrey p-2 rounded-[50%]">
             <IoIosSearch />
           </button>
 
-          <input type="text" name="" id="" placeholder="Search" className="bg-inherit text-inherit h-[100%] placeholder:text-inherit text-[1rem]"/>
+
+          <input type="text" name="" id="" placeholder="Search" className="bg-inherit text-inherit h-[100%] placeholder:text-inherit text-[1rem] md:flex hidden"/>
         </div>
 
         <button className="profile-photo flex items-center">
           <img src={avatar} alt="" className="rounded-full h-9"/>
         </button>
+        </div>
       </nav>
     </>
   );
