@@ -9,7 +9,8 @@ import { NavLink } from "react-router-dom";
 import { IoMdNotificationsOutline } from "react-icons/io";
 import { RxPencil1 } from "react-icons/rx";
 
-const SideBar = ({ isNavbarOpen, ToggleNavBar }) => {
+const SideBar = ({ isNavbarOpen, toggleNavBar, navBarOpenType }) => {
+  const navBarOpen = isNavbarOpen;
   const linkClass = ({ isActive }) =>
     isNavbarOpen
       ? `px-4 flex items-center w-[17rem] rounded-r-full transition-[width] duration-300 ease-in-out p-3 pl-6 h-[3rem] ${
@@ -19,16 +20,32 @@ const SideBar = ({ isNavbarOpen, ToggleNavBar }) => {
           isActive ? "bg-darkYellow" : "hover:bg-lightGrey"
         }  p-3  `;
 
-  const linkNameClass = isNavbarOpen ? "pl-6" : "hidden";
+  const linkNameClass = navBarOpen ? "pl-6" : "hidden";
 
   const linkIconClass = ({ isActive }) =>
     isActive
       ? `option rounded-full  flex items-center justify-center aspect-square  w-12 bg-darkYellow`
       : `option rounded-full hover:bg-lightGrey flex items-center justify-center aspect-square w-12`;
 
-      const asideClass = isNavbarOpen ? "bg-dark py-4 md:sticky fixed top-[4rem] min-h-[calc(100vh-4rem)] z-10 " : "py-4 sticky top-[4rem] min-h-[calc(100vh-4rem)] z-10"
+  const asideClass = navBarOpen
+    ? "bg-dark py-4 md:sticky fixed top-[4rem] min-h-[calc(100vh-4rem)] z-10 "
+    : "py-4 sticky top-[4rem] min-h-[calc(100vh-4rem)] z-10";
+
+  const NavToggleOnHover = () => {
+    if (!isNavbarOpen) {
+      toggleNavBar("temporary");
+    }else if(navBarOpenType !== "permanent"){
+      toggleNavBar("temporary");
+      
+    }
+  };
+
   return (
-    <aside className={asideClass}>
+    <aside
+      className={`transition-all ease-in-out duration-1000 ${asideClass} `}
+      onMouseEnter={NavToggleOnHover}
+      onMouseLeave={NavToggleOnHover}
+    >
       <div className="top-options-con flex flex-col gap-2">
         <NavLink to="/" className={linkClass}>
           <div className={linkIconClass}>

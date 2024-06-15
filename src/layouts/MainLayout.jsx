@@ -4,15 +4,24 @@ import SideBar from "../components/SideBar";
 
 const MainLayout = ({ children }) => {
   const [isNavbarOpen, setIsNavbarOpen] = useState(false);
-  const ToggleNavBar = () => {
-    setIsNavbarOpen(prevState => !prevState);
+  const [navBarOpenType, setNavBarOpenType] = useState("permanent");
+
+  const toggleNavBar = (type="permanent") => {
+    setIsNavbarOpen(prevState => !prevState)
+    setNavBarOpenType(type)
   };
+
   return (
     <>
-      <NavBar isNavbarOpen={isNavbarOpen} setIsNavbarOpen={setIsNavbarOpen} ToggleNavBar={ToggleNavBar} />
+      <NavBar
+        isNavbarOpen={isNavbarOpen}
+        toggleNavBar={toggleNavBar}
+      />
       <div className=" relative flex items-start">
-        <SideBar isNavbarOpen={isNavbarOpen} setIsNavbarOpen={setIsNavbarOpen} />
-        <main className="mt-[5rem] p-6 inline gap-1">{children}</main>
+        <SideBar isNavbarOpen={isNavbarOpen} toggleNavBar={toggleNavBar} navBarOpenType={navBarOpenType}/>
+        <main className="mt-[5rem] p-6 inline gap-1 transition-[width] duration-700 ease">
+          {children}
+        </main>
       </div>
     </>
   );
