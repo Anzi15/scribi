@@ -42,7 +42,7 @@ const SideBar = ({ isNavbarOpen, toggleNavBar, navBarOpenType }) => {
 
   return (
     <aside
-      className={`transition-all ease-in-out duration-1000 ${asideClass} `}
+      className={`${asideClass} `}
       onMouseEnter={NavToggleOnHover}
       onMouseLeave={NavToggleOnHover}
     >

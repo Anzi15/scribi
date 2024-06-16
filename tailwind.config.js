@@ -18,6 +18,7 @@ export default {
         grey: "#353638",
         white: "#ffffff",
         darkYellow: "#41331C",
+        slate: "#e8eaed"
       },
       transitionProperty: {
         'width': 'width',
