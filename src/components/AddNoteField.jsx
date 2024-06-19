@@ -1,34 +1,54 @@
-import React from 'react'
-import { IoIosCheckboxOutline } from 'react-icons/io'
-import { MdOutlineBrush } from 'react-icons/md'
-import { BiImageAlt } from 'react-icons/bi'
-
+import React, { useState } from "react";
+import { IoIosCheckboxOutline } from "react-icons/io";
+import { MdOutlineBrush } from "react-icons/md";
+import { BiImageAlt } from "react-icons/bi";
 
 const AddNoteField = () => {
-    return (
-    <div className="max-w-[566px] w-[98%] border rounded-lg  px-4 border-lightGrey">
-    <div className="note-content-con flex w-[100%]  items-center justify-between">
-        <input type="text" className='bg-transparent h-8 placeholder:text-slate' placeholder='Take a note...' name="" id="" />
+  const [isFieldExpanded, setIsFieldExpanded] = useState(false);
+  
 
-        <div className="action-btns-con text-white flex text-slate">
-          <div className=" p-3 rounded-full hover:bg-lightGrey">
+  const dynamicIconConClass = isFieldExpanded ? "justify-between " : "justify-end";
+  const dynamicIconClass = isFieldExpanded ? "text-xl" : "text-2xl";
+  const dynamicTitleFieldClass = isFieldExpanded ? "flex" : "hidden";
+  const dynamicFieldConClass = isFieldExpanded ? "flex-col" : "";
+  const dynamicFieldClass = isFieldExpanded ? "w-[100%]" : "";
 
-            <IoIosCheckboxOutline className='text-2xl'  />
-          </div>
-          
-          <div className=" p-3 rounded-full hover:bg-lightGrey">
+  return (
+    <div className="max-w-[566px] w-[98%] border rounded-lg  px-4 border-lightGrey" onFocusout={()=>{alert('n')}}>
+      <div className={`note-content-con flex  items-center justify-between ${dynamicFieldConClass} gap-4`}>
+        <input
+          type="text"
+          placeholder="Title"
+          className={`bg-transparent h-8 placeholder:text-slate w-[100%] ${dynamicTitleFieldClass}`}
+        />
 
-            <MdOutlineBrush  className='text-2xl'  />
-          </div>
+        <input
+          type="text"
+          className="bg-transparent h-8 placeholder:text-slate w-[100%]"
+          placeholder="Take a note..."
+          name=""
+          id=""
+          onFocus={()=>{setIsFieldExpanded(true)}}
+        />
 
-          <div className=" p-3 rounded-full hover:bg-lightGrey">
+        <div className={`text-white flex text-slate w-full ${dynamicIconConClass}`}>
+          <div className="action-icons-con  flex text-slate">
+            <div className=" p-2 rounded-full hover:bg-lightGrey">
+              <IoIosCheckboxOutline className="text-2xl" />
+            </div>
 
-            <BiImageAlt      className='text-2xl '   />
+            <div className=" p-2 rounded-full hover:bg-lightGrey">
+              <MdOutlineBrush className="text-2xl" />
+            </div>
+
+            <div className=" p-2 rounded-full hover:bg-lightGrey">
+              <BiImageAlt className={dynamicIconClass} />
+            </div>
           </div>
         </div>
+      </div>
     </div>
-</div>
-    )
-}
+  );
+};
 
-export default AddNoteField
+export default AddNoteField;

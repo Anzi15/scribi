@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useContext } from "react";
 import {
   MdLabelOutline,
   MdLightbulbOutline,
@@ -8,11 +8,14 @@ import {
 import { NavLink } from "react-router-dom";
 import { IoMdNotificationsOutline } from "react-icons/io";
 import { RxPencil1 } from "react-icons/rx";
+import { StateContext } from "../states/navbarState/statecontext";
 
-const SideBar = ({ isNavbarOpen, toggleNavBar, navBarOpenType }) => {
-  const navBarOpen = isNavbarOpen;
+const SideBar = () => {
+  const { state, dispatch } = useContext(StateContext);
+  const { isSideBarOpen, sideBarOpenType } = state;
+
   const linkClass = ({ isActive }) =>
-    isNavbarOpen
+    isSideBarOpen
       ? `px-4 flex items-center w-[17rem] rounded-r-full transition-[width] duration-300 ease-in-out p-3 pl-6 h-[3rem] ${
           isActive ? "bg-darkYellow" : "hover:bg-lightGrey"
         }  `
@@ -20,25 +23,27 @@ const SideBar = ({ isNavbarOpen, toggleNavBar, navBarOpenType }) => {
           isActive ? "bg-darkYellow" : "hover:bg-lightGrey"
         }  p-3  `;
 
-  const linkNameClass = navBarOpen ? "pl-6" : "hidden";
+  const linkNameClass = isSideBarOpen ? "pl-6" : "hidden";
 
   const linkIconClass = ({ isActive }) =>
     isActive
       ? `option rounded-full  flex items-center justify-center aspect-square  w-12 bg-darkYellow`
       : `option rounded-full hover:bg-lightGrey flex items-center justify-center aspect-square w-12`;
 
-  const asideClass = navBarOpen
+  const asideClass = isSideBarOpen
     ? "bg-dark py-4 md:sticky fixed top-[4rem] min-h-[calc(100vh-4rem)] z-10 "
     : "py-4 sticky top-[4rem] min-h-[calc(100vh-4rem)] z-10";
 
   const NavToggleOnHover = () => {
-    if (!isNavbarOpen) {
-      toggleNavBar("temporary");
-    }else if(navBarOpenType !== "permanent"){
-      toggleNavBar("temporary");
-      
+    if (!isSideBarOpen) {
+      dispatch({type: "TOGGLE_NAVBAR", payload: "temporary"})
+
+    } else if (sideBarOpenType == "temporary") {
+      dispatch({ type: "TOGGLE_NAVBAR", payload: "temporary" });
     }
   };
+
+
 
   return (
     <aside
