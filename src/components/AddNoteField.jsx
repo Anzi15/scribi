@@ -47,7 +47,7 @@ const AddNoteField = () => {
           onInput={(e)=>{e.target.style.height=""; e.target.style.height = e.target.scrollHeight + "px"}}
         />
 
-        <div className={`text-white flex text-slate w-full ${dynamicIconConClass}`}>
+        <div className={`flex text-slate w-full ${dynamicIconConClass}`}>
           <div className="action-icons-con  flex text-slate">
             <div className=" p-2 rounded-full hover:bg-lightGrey">
               <IoIosCheckboxOutline className="text-2xl" />
