@@ -7,7 +7,7 @@ const SignInModal = () => {
   return (
     <>
       <Modal focusOutAble={false} closeAble={false}>
-        <h1 className="text-xl">You must Log-in to continue</h1>
+        <h1 className="text-xl">You must Login to continue</h1>
 
         <Link to={"/log-in"}>
           <Button className="text-white my-6 mx-3" variant="gradient">
