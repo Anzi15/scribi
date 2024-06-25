@@ -1,5 +1,6 @@
+const withMT = require("@material-tailwind/react/utils/withMT");
 /** @type {import('tailwindcss').Config} */
-export default {
+export default withMT({
   content: [
      "./index.html",
     "./src/**/*.{js,ts,jsx,tsx}"
@@ -24,9 +25,12 @@ export default {
         'width': 'width',
         'padding': 'padding',
       },
+      boxShadow: {
+        'type-1': 'rgba(0, 0, 0, 0.35) 0px 5px 15px',
+      },
     },
     fontFamily: {
-      sans: ["product-sans"],
+      sans: ["product-sans", "Open Sans", "sans-serif"],
     },
 
   },
@@ -37,5 +41,12 @@ export default {
     },
   },
   plugins: [],
-}
+})
 
+// module.exports = withMT({
+//   content: [],
+//   theme: {
+//     extend: {},
+//   },
+//   plugins: [],
+// })
